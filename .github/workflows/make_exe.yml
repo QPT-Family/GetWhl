@@ -1,7 +1,7 @@
 # This is a basic workflow to help you get started with Actions
 # 抄艾佬的作品https://github.com/HighCWu/onnxruntime
 
-name: 编译Whl
+name: 使用QPT生成EXE
 
 # Controls when the workflow will run
 on:
