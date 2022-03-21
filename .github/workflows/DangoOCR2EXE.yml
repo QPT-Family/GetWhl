@@ -40,14 +40,12 @@ jobs:
       - name: 正在编译 ${{ matrix.python-version }} 的Whl文件
         run: |
           # 填写需要编译Whl包的Git仓库，此处以QPT为例
-          chcp 65001
           git clone https://github.com/PantsuDango/DangoOCR
           cd DangoOCR/server
           python -m pip install -U setuptools wheel qpt
           python -m pip install -r requirements_with_opt.txt
           $env:QPT_Action="True"
-          echo "from qpt.executor import CreateExecutableModule\n\nmodule = CreateExecutableModule(work_dir='./',\n\nlauncher_py_path='./run.py',\nsave_path='./../out')\nmodule.make()" > tmp.py
-          python tmp.py
+          qpt.exe -f ./ -p ./app.py -s ./../out
         
       - name: 上传文件
         uses: actions/upload-artifact@v2
