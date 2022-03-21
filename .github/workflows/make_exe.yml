@@ -40,6 +40,7 @@ jobs:
       - name: 正在编译 ${{ matrix.python-version }} 的Whl文件
         run: |
           # 填写需要编译Whl包的Git仓库，此处以QPT为例
+          chcp 65001
           git clone https://github.com/QPT-Family/QPT
           cd QPT/unit_test/sandbox_paddleocr
           python -m pip install -U setuptools wheel qpt
