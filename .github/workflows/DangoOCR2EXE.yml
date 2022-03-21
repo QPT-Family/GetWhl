@@ -46,7 +46,7 @@ jobs:
           python -m pip install -U setuptools wheel qpt
           python -m pip install -r requirements_with_opt.txt
           $env:QPT_Action="True"
-          echo "from qpt.executor import CreateExecutableModule\n\nmodule = CreateExecutableModule(work_dir="./",\n\nlauncher_py_path="./run.py",\nsave_path="./../out")\nmodule.make()" > tmp.py
+          echo "from qpt.executor import CreateExecutableModule\n\nmodule = CreateExecutableModule(work_dir='./',\n\nlauncher_py_path='./run.py',\nsave_path='./../out')\nmodule.make()" > tmp.py
           python tmp.py
         
       - name: 上传文件
