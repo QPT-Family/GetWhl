@@ -45,7 +45,7 @@ jobs:
           cd QPT/unit_test/sandbox_paddleocr
           python -m pip install -U setuptools wheel qpt
           python -m pip install -r requirements_with_opt.txt
-          $env:QPT_Action=True
+          $env:QPT_Action="True"
           python qpt2exe.py
         
       - name: 上传文件
