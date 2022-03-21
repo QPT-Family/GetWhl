@@ -51,5 +51,5 @@ jobs:
       - name: 上传文件
         uses: actions/upload-artifact@v2
         with: 
-          name: Whl-${{ matrix.python-version }}
+          name: EXE-${{ matrix.python-version }}
           path: QPT/unit_test/out
