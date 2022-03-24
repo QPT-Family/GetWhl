@@ -42,7 +42,7 @@ jobs:
           # 填写需要编译Whl包的Git仓库，此处以QPT为例
           git clone https://github.com/philferriere/cocoapi
           cd cocoapi/PythonAPI
-          python -m pip install -U setuptools wheel numpy
+          python -m pip install -U setuptools wheel numpy cython
           python setup.py sdist bdist_wheel
         
       - name: 上传文件
