@@ -9,23 +9,23 @@ on:
   workflow_dispatch:
     inputs:
       git_url:
-        description: '源码Git地址 \n [Git Url] \n Example https://github.com/QPT-Family/QPT[QPT为Repo名]'
+        description: '源码Git地址 | [Git Url] | Example https://github.com/QPT-Family/QPT[QPT为Repo名]'
         required: true
         default: 'https://github.com/QPT-Family/QPT'
       work_dir:
-        description: '源码工作目录 \n [仓库名] + [工作目录位置] \n Example QPT/unit_test/sandbox_paddleocr'
+        description: '源码工作目录 | [仓库名] + [工作目录位置] | Example QPT/unit_test/sandbox_paddleocr'
         required: true
         default: 'QPT/unit_test/sandbox_paddleocr'
       out_dir:
-        description: '输出目录 \n [仓库名]] + [Action输出位置] \n Example QPT/unit_test/out'
+        description: '输出目录 | [仓库名]] + [Action输出位置] | Example QPT/unit_test/out'
         required: true
         default: 'QPT/unit_test/out'
       requirements:
-        description: '工作目录下的依赖文件 \n Example requirements_with_opt.txt'
+        description: '工作目录下的依赖文件 | Example requirements_with_opt.txt'
         required: true
         default: 'requirements_with_opt.txt'
       qpt2exe:
-        description: '工作目录下QPT打包脚本 \n Example qpt2exe.py'
+        description: '工作目录下QPT打包脚本 | Example qpt2exe.py'
         required: true
         default: 'qpt2exe.py'
 
@@ -62,7 +62,7 @@ jobs:
         run: |
           # 填写需要编译Whl包的Git仓库，此处以QPT为例
           chcp 65001
-          git clone ${{ github.event.inputs.git_url }}"
+          git clone ${{ github.event.inputs.git_url }}
           cd ${{ github.event.inputs.work_dir }}
           python -m pip install -U setuptools wheel qpt
           python -m pip install -r ${{ github.event.inputs.requirements }}
