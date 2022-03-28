@@ -9,23 +9,23 @@ on:
   workflow_dispatch:
     inputs:
       git_url:
-        description: '源码Git地址'
+        description: '源码Git地址 \n [Git Url] \n Example https://github.com/QPT-Family/QPT[QPT为Repo名]'
         required: true
-        default: 'https://github.com/QPT-Family/QPT[QPT为Repo名]'
+        default: 'https://github.com/QPT-Family/QPT'
       work_dir:
-        description: '源码Git地址 例如QPT/unit_test/sandbox_paddleocr'
+        description: '源码工作目录 \n [仓库名] + [工作目录位置] \n Example QPT/unit_test/sandbox_paddleocr'
         required: true
-        default: 'Repo名/待打包的目录'
+        default: 'QPT/unit_test/sandbox_paddleocr'
       out_dir:
-        description: '输出目录 例如QPT/unit_test/out'
+        description: '输出目录 \n [仓库名]] + [Action输出位置] \n Example QPT/unit_test/out'
         required: true
-        default: 'Repo名/QPT打包脚本指定的输出目录'
+        default: 'QPT/unit_test/out'
       requirements:
-        description: '工作目录下的依赖文件'
+        description: '工作目录下的依赖文件 \n Example requirements_with_opt.txt'
         required: true
-        default: 'requirement.txt'
+        default: 'requirements_with_opt.txt'
       qpt2exe:
-        description: '工作目录下QPT打包脚本'
+        description: '工作目录下QPT打包脚本 \n Example qpt2exe.py'
         required: true
         default: 'qpt2exe.py'
 
