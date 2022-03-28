@@ -7,6 +7,27 @@ name: 使用QPT生成EXE
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      git_url:
+        description: '源码Git地址'
+        required: true
+        default: 'https://github.com/QPT-Family/QPT[QPT为Repo名]'
+      work_dir:
+        description: '源码Git地址 例如QPT/unit_test/sandbox_paddleocr'
+        required: true
+        default: 'Repo名/待打包的目录'
+      out_dir:
+        description: '输出目录 例如QPT/unit_test/out'
+        required: true
+        default: 'Repo名/QPT打包脚本指定的输出目录'
+      requirements:
+        description: '工作目录下的依赖文件'
+        required: true
+        default: 'requirement.txt'
+      qpt2exe:
+        description: '工作目录下QPT打包脚本'
+        required: true
+        default: 'qpt2exe.py'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -41,15 +62,15 @@ jobs:
         run: |
           # 填写需要编译Whl包的Git仓库，此处以QPT为例
           chcp 65001
-          git clone https://github.com/QPT-Family/QPT
-          cd QPT/unit_test/sandbox_paddleocr
+          git clone ${{ github.event.inputs.git_url }}"
+          cd ${{ github.event.inputs.work_dir }}
           python -m pip install -U setuptools wheel qpt
-          python -m pip install -r requirements_with_opt.txt
+          python -m pip install -r ${{ github.event.inputs.requirements }}
           $env:QPT_Action="True"
-          python qpt2exe.py
+          python ${{ github.event.inputs.qpt2exe }}
         
       - name: 上传文件
         uses: actions/upload-artifact@v2
         with: 
           name: EXE-${{ matrix.python-version }}
-          path: QPT/unit_test/out
+          path: ${{ github.event.inputs.out_dir }}
