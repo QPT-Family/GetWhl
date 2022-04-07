@@ -69,10 +69,10 @@ jobs:
           $env:PYTHONIOENCODING="utf-8"
           $env:QPT_Action="True"
           python ${{ github.event.inputs.qpt2exe }}
-          Compress-Archive -Path ${{ github.event.inputs.out_dir }} -DestinationPath ${{ github.event.inputs.out_dir }}\comb\comb.zip
+          # Compress-Archive -Path ${{ github.event.inputs.out_dir }} -DestinationPath ${{ github.event.inputs.out_dir }}\comb\comb.zip
         
       - name: 上传文件
         uses: actions/upload-artifact@v2
         with: 
           name: EXE-${{ matrix.python-version }}
-          path: ${{ github.event.inputs.out_dir }}\comb
+          path: ${{ github.event.inputs.out_dir }}
