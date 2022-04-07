@@ -66,6 +66,7 @@ jobs:
           cd ${{ github.event.inputs.work_dir }}
           python -m pip install -U setuptools wheel qpt
           python -m pip install -r ${{ github.event.inputs.requirements }}
+          $env:PYTHONIOENCODING="utf-8"
           $env:QPT_Action="True"
           python ${{ github.event.inputs.qpt2exe }}
         
