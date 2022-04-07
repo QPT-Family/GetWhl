@@ -39,7 +39,7 @@ jobs:
     strategy:
       matrix:
         python-version: ['3.8']
-    name: 当Python环境为 ${{ matrix.python-version }}
+    name: 环境情况-Python ${{ matrix.python-version }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
