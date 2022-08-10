@@ -64,6 +64,7 @@ jobs:
           chcp 65001
           git clone ${{ github.event.inputs.git_url }}
           cd ${{ github.event.inputs.work_dir }}
+          python -m pip install -U pip
           python -m pip install -U setuptools wheel qpt
           python -m pip install -r ${{ github.event.inputs.requirements }}
           $env:PYTHONIOENCODING="utf-8"
